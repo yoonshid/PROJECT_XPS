@@ -1,10 +1,46 @@
 <!DOCTYPE html>
-<html>
-  <head>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Result</title>
-  </head>
-  <body>
-    <!-- Display the chosen color -->
-    <h1>You chose the {{ color }} button.</h1>
-  </body>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        .color-box {
+            width: 150px;
+            height: 150px;
+            border-radius: 10px;
+            background-color: rgb({{ r }}, {{ g }}, {{ b }});  /* Inline Jinja to apply dynamic color */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 16px;
+            text-shadow: 1px 1px 2px black;
+        }
+    </style>
+</head>
+<body>
+    <h1>Average Color of Your Image</h1>
+
+    <!-- Display the calculated average color -->
+    <div class="color-box">
+        RGB({{ r }}, {{ g }}, {{ b }})
+    </div>
+
+    <p>Your uploaded image: <strong>{{ filename }}</strong></p>
+</body>
 </html>
